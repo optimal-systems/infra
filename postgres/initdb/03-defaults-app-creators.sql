@@ -1,0 +1,33 @@
+\connect optimal
+
+-- Default privileges para objetos creados por data_ingestor
+ALTER DEFAULT PRIVILEGES FOR ROLE data_ingestor IN SCHEMA optimal
+  GRANT SELECT ON TABLES TO optimal_ro;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE data_ingestor IN SCHEMA optimal
+  GRANT SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER ON TABLES TO optimal_rw;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE data_ingestor IN SCHEMA optimal
+  GRANT USAGE, SELECT ON SEQUENCES TO optimal_ro;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE data_ingestor IN SCHEMA optimal
+  GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO optimal_rw;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE data_ingestor IN SCHEMA optimal
+  GRANT EXECUTE ON FUNCTIONS TO optimal_ro, optimal_rw;
+
+-- Default privileges para objetos creados por optimal_backend
+ALTER DEFAULT PRIVILEGES FOR ROLE optimal_backend IN SCHEMA optimal
+  GRANT SELECT ON TABLES TO optimal_ro;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE optimal_backend IN SCHEMA optimal
+  GRANT SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER ON TABLES TO optimal_rw;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE optimal_backend IN SCHEMA optimal
+  GRANT USAGE, SELECT ON SEQUENCES TO optimal_ro;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE optimal_backend IN SCHEMA optimal
+  GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO optimal_rw;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE optimal_backend IN SCHEMA optimal
+  GRANT EXECUTE ON FUNCTIONS TO optimal_ro, optimal_rw;
