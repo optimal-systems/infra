@@ -1,6 +1,6 @@
 # Optimal Postgres 🐘
 
-Image based on [bitnami/postgresql:17.6.0](https://hub.docker.com/r/bitnami/postgresql):
+Imagen basada en [bitnami/postgresql:17.6.0](https://hub.docker.com/r/bitnami/postgresql):
 
 - **Base de datos** `optimal`
 - **Esquema dedicado** `optimal` (no usa `public`)
