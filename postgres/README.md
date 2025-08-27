@@ -12,7 +12,7 @@ Imagen basada en [bitnami/postgresql:17.6.0](https://hub.docker.com/r/bitnami/po
 
 ## Build
 ```bash
-docker build -t optimal-postgres:17.6.0 ./postgres
+docker build -t optimal-postgres:17.6.0 .
 ```
 ---
 
