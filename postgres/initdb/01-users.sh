@@ -9,16 +9,14 @@ set -euo pipefail
 
 export PGPASSWORD="${POSTGRESQL_PASSWORD}"
 
-psql -U "${POSTGRESQL_USERNAME}" -d "${POSTGRESQL_DATABASE}" \
-  -v ingestor_pw="${OPTIMAL_INGESTOR_PASSWORD}" \
-  -v backend_pw="${OPTIMAL_BACKEND_PASSWORD}" <<'SQL'
-DO $$
+psql -U "${POSTGRESQL_USERNAME}" -d "${POSTGRESQL_DATABASE}" <<SQL
+DO \$\$
 BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'data_ingestor') THEN
-    EXECUTE format('CREATE ROLE data_ingestor LOGIN PASSWORD %L', :'ingestor_pw');
+    EXECUTE format('CREATE ROLE data_ingestor LOGIN PASSWORD %L', '${OPTIMAL_INGESTOR_PASSWORD}');
   END IF;
   IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'optimal_backend') THEN
-    EXECUTE format('CREATE ROLE optimal_backend LOGIN PASSWORD %L', :'backend_pw');
+    EXECUTE format('CREATE ROLE optimal_backend LOGIN PASSWORD %L', '${OPTIMAL_BACKEND_PASSWORD}');
   END IF;
-END $$;
+END \$\$;
 SQL
