@@ -4,16 +4,16 @@
   "description": "",
   "rootUrl": "",
   "adminUrl": "",
-  "baseUrl": "http://localhost:5173",
+  "baseUrl": "http://localhost:4173",
   "surrogateAuthRequired": false,
   "enabled": true,
   "alwaysDisplayInConsole": false,
   "clientAuthenticatorType": "client-secret",
   "redirectUris": [
-    "http://localhost:5173/*"
+    "http://localhost:4173/*"
   ],
   "webOrigins": [
-    "http://localhost:5173"
+    "http://localhost:4173"
   ],
   "notBefore": 0,
   "bearerOnly": false,
@@ -26,6 +26,7 @@
   "frontchannelLogout": true,
   "protocol": "openid-connect",
   "attributes": {
+    "client.secret.creation.time": "1756728276",
     "client.introspection.response.allow.jwt.claim.enabled": "false",
     "login_theme": "optimal-keycloak-theme",
     "frontchannel.logout.session.required": "true",
@@ -50,16 +51,16 @@
   "defaultClientScopes": [
     "web-origins",
     "acr",
-    "roles",
     "profile",
+    "roles",
     "basic",
     "email"
   ],
   "optionalClientScopes": [
     "address",
     "phone",
-    "offline_access",
     "organization",
+    "offline_access",
     "microprofile-jwt"
   ],
   "access": {
